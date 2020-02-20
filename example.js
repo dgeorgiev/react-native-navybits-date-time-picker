@@ -18,12 +18,12 @@ import {
   Dimensions
 } from "react-native";
 import TimePicker from "./datePicker";
-import moment from "moment";
+import dayjs from "dayjs";
 let { width, height } = Dimensions.get("window");
 export default class App extends Component {
   constructor(props) {
     super(props);
-    let selectedDate = moment();
+    let selectedDate = dayjs();
     this.state = {
       mode: "date",
       is24Hour: true,
@@ -42,9 +42,9 @@ export default class App extends Component {
     this._hideDateTimePicker = this._hideDateTimePicker.bind(this);
   }
   renderDate(date) {
-    let year = moment(date).format("YYYY");
-    let month = moment(date).format("MMM");
-    let day = moment(date).format("DD");
+    let year = dayjs(date).format("YYYY");
+    let month = dayjs(date).format("MMM");
+    let day = dayjs(date).format("DD");
     return (
       <View style={styles.dateWrapper}>
         <View

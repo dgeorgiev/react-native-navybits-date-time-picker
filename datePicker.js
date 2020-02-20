@@ -1,5 +1,5 @@
 import _ from "lodash";
-import moment from "moment";
+import dayjs from "dayjs";
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import {
@@ -149,7 +149,7 @@ class DatePicker extends Component {
       return date;
     }
 
-    return moment(date, format).toDate();
+    return dayjs(date, format).toDate();
   }
 
   getDateStr(date = this.props.date) {
@@ -163,7 +163,7 @@ class DatePicker extends Component {
       return this.props.getDateStr(dateInstance);
     }
 
-    return moment(dateInstance).format(format);
+    return dayjs(dateInstance).format(format);
   }
 
   datePicked() {
@@ -202,41 +202,41 @@ class DatePicker extends Component {
     let _this = this;
     let options = _.clone(this.props);
     let date = this.state.date;
-    // console.log({ date: moment(date) });
+    // console.log({ date: dayjs(date) });
     if (options.mode == "time") {
-      options.hour = moment(date).hour();
-      options.minute = moment(date).minute();
-      options.second = moment(date).second();
+      options.hour = dayjs(date).hour();
+      options.minute = dayjs(date).minute();
+      options.second = dayjs(date).second();
 
       if (options.minTime) {
         options = {
           ...options,
-          minTime: moment(options.minTime).format("HH:mm:ss")
+          minTime: dayjs(options.minTime).format("HH:mm:ss")
         };
       }
 
       if (options.maxTime) {
         options = {
           ...options,
-          maxTime: moment(options.maxTime).format("HH:mm:ss")
+          maxTime: dayjs(options.maxTime).format("HH:mm:ss")
         };
       }
     } else {
-      options.year = moment(date).get("year");
-      options.month = moment(date).get("month");
-      options.day = moment(date).get("date");
+      options.year = dayjs(date).get("year");
+      options.month = dayjs(date).get("month");
+      options.day = dayjs(date).get("date");
 
       if (options.minDate) {
         options = {
           ...options,
-          minDate: moment(options.minDate).format("DD-MM-YYYY")
+          minDate: dayjs(options.minDate).format("DD-MM-YYYY")
         };
       }
 
       if (options.maxDate) {
         options = {
           ...options,
-          maxDate: moment(options.maxDate).format("DD-MM-YYYY")
+          maxDate: dayjs(options.maxDate).format("DD-MM-YYYY")
         };
       }
     }
