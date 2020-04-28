@@ -241,6 +241,7 @@ class DatePicker extends Component {
       }
     }
     // console.log({ options });
+    delete options.TouchableComponent;
     if (options.mode == "time")
       RCTDateTimePicker.showTimePicker(options, function(hour, minute, second) {
         //ƒconsole.log({ hour, minute, second });
