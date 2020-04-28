@@ -457,14 +457,14 @@ class DatePicker extends Component {
                       ]}
                     >
                       <RNDateTimePicker
-                        date={this.state.date}
+                        value={this.state.date}
                         mode={mode}
                         ref={picker => {
                           this._picker = picker;
                         }}
                         minimumDate={minDate && this.getDate(minDate)}
                         maximumDate={maxDate && this.getDate(maxDate)}
-                        onDateChange={this.onDateChange}
+                        onChange={this.onDateChange}
                         itemStyle={styles.itemStyle}
                         minuteInterval={minuteInterval}
                         timeZoneOffsetInMinutes={
