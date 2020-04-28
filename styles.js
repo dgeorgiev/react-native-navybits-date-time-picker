@@ -10,7 +10,7 @@ module.exports = StyleSheet.create({
   itemStyle: {
     color: "red"
   },
-  datePickerIOS: {
+  DatePicker: {
     height: 216
   },
   datePickerMask: {
