@@ -13,10 +13,7 @@
   "author": "Hanane AL SAMROUT",
   "license": "MIT",
   "peerDependencies": {
-    "dayjs": "^1.8.20",
-    "react-native": "^0.41.2"
-  },
-  "dependencies": {
-    "@react-native-community/datetimepicker": "^2.3.2"
+    "react-native": "^0.41.2",
+    "dayjs": "^1.8.20"
   }
 }

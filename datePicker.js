@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import {
   Animated,
+  DatePickerIOS,
   Keyboard,
   Modal,
   NativeModules,
@@ -12,8 +13,6 @@ import {
   TouchableHighlight,
   View
 } from "react-native";
-import RNDateTimePicker from '@react-native-community/datetimepicker';
-
 import styles from "./styles";
 var RCTDateTimePicker = NativeModules.DateTimePicker;
 
@@ -456,8 +455,8 @@ class DatePicker extends Component {
                         darkTheme ? { backgroundColor: "lightgrey" } : {}
                       ]}
                     >
-                      <RNDateTimePicker
-                        value={this.state.date}
+                      <DatePickerIOS
+                        date={this.state.date}
                         mode={mode}
                         ref={picker => {
                           this._picker = picker;
@@ -472,7 +471,7 @@ class DatePicker extends Component {
                             ? timeZoneOffsetInMinutes
                             : null
                         }
-                        style={[styles.RNDateTimePicker, customStyles.datePicker]}
+                        style={[styles.datePickerIOS, customStyles.datePicker]}
                         locale={locale || (is24Hour ? "en_GB" : "en_us")}
                       />
                     </View>
@@ -490,7 +489,7 @@ class DatePicker extends Component {
 DatePicker.defaultProps = {
   mode: "date",
   date: new Date(),
-  // component height: 216(RNDateTimePicker) + 1(borderTop) + 42(marginTop), IOS only
+  // component height: 216(DatePickerIOS) + 1(borderTop) + 42(marginTop), IOS only
   height: 259,
 
   // slide animation duration time, default to 300ms, IOS only
